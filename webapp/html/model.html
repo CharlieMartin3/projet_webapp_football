@@ -3,77 +3,16 @@
   <head>
     <title>Football Player Recommendation Model</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      body {
-        background-color: #F5F5DC;
-        font-family: 'Montserrat', sans-serif;
-      }
-      h1 {
-        text-align: center;
-        color: #333;
-        font-weight: 600;
-        margin-top: 50px;
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px;
-      }
-      label {
-        font-size: larger;
-        color: #333;
-        font-weight: 400;
-        margin-bottom: 10px;
-      }
-      input[type="text"], input[type="number"] {
-        padding: 10px;
-        font-size: larger;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-      }
-      button {
-        padding: 10px 20px;
-        background-color: #008080;
-        color: #fff;
-        border-radius: 20px;
-        font-size: larger;
-        font-weight: 600;
-        margin-top: 20px;
-        cursor: pointer;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-        #result {
-        margin-top: 50px;
-        text-align: center;
-      }
-      #home-button {
-        background-color: #008080;
-        color: #fff;
-        border-radius: 20px;
-        font-size: larger;
-        font-weight: 600;
-        padding: 10px 20px;
-        cursor: pointer;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-    }
-    </style>
+    <link rel="stylesheet" href="/static/styles.css">
   </head>
   <body>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/model">Modèle de joueurs</a>
+      <a href="/goalkeeper">Modèle de gardiens</a>
+      <a href="/about">À propos</a>
+      <a href="/contact">Contact</a>
+  </nav>
     <button type="button" id="home-button"">Home</button>
     <h1>Football Player Recommendation Model</h1>
     <form>
@@ -87,6 +26,9 @@
       <button type="submit" onclick="getRecommendations()">Get Recommendations</button>
     </form>
     <div id="result"></div>
+    <footer>
+      <p>Contactez-nous : contact@football-recommendation.com | Mentions légales | Politique de confidentialité</p>
+  </footer>
     <script>
       //event on the button
       document.getElementById("home-button").addEventListener("click", function() {window.location.href = "/index";});
