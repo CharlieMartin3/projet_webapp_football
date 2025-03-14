@@ -4,18 +4,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/static/styles.css">
     </head>
-    <body>
+    <body id="index-page">
         <nav>
-            <a href="/">Accueil</a>
-            <a href="/model">Modèle de joueurs</a>
-            <a href="/goalkeeper">Modèle de gardiens</a>
-            <a href="/about">À propos</a>
-            <a href="/contact">Contact</a>
-        </nav>
+          <a href="/">Home</a>
+          <a href="/model">Player model</a>
+          <a href="/goalkeeper">GoalKeeper model</a>
+          <a href="/about">About me</a>
+          <a href="/contact">Contact</a>
+      </nav>
         <h1>Welcome to our Football Player Recommendation System</h1>
-        <p>Our system uses advanced machine learning algorithms to recommend the best players for your team.</p>
         <div id="model-description">
-            <p>Our model is based on cosine similarity between players from the top 5 European leagues:</p>
+            <p class="p-center">Our system uses advanced machine learning algorithms to recommend the best players for your team.</p>
+            <p class="p-center">Our model is based on cosine similarity between players from the top 5 European leagues:</p>
             <ul>
                 <li>English Premier League</li>
                 <li>La Liga</li>
@@ -27,7 +27,7 @@
         <button onclick="window.location.href='/model'">Start Using the Model</button>
         <button onclick="window.location.href='/goalkeeper'">Start Using the GoalKeeper Model</button>
         <footer>
-            <p>Contactez-nous : contact@football-recommendation.com | Mentions légales | Politique de confidentialité</p>
+            <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
         </footer>
     </body>
 </html>

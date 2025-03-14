@@ -163,6 +163,14 @@ async def read_joueur_solo(joueur_nom,nombre=10,prix_max=300):
     }
     return res
 
+@app.get("/about")
+def home():
+    return HTMLResponse(content=open("webapp/html/about.html", "r").read())    
+
+@app.get("/contact")
+def home():
+    return HTMLResponse(content=open("webapp/html/contact.html", "r").read()) 
+
 @app.get("/items/{id}", response_class=HTMLResponse)
 async def read_item(request: Request, id: str):
     return templates.TemplateResponse("item.html", {"request": request, "id": id})

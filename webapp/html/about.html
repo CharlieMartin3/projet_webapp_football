@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>À propos - Football Player Recommendation System</title>
+        <title>About me - Football Player Recommendation System</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/static/styles.css">
     </head>
     <body>
         <nav>
-            <a href="/">Accueil</a>
-            <a href="/model">Modèle de joueurs</a>
-            <a href="/goalkeeper">Modèle de gardiens</a>
-            <a href="/about">À propos</a>
+            <a href="/">Home</a>
+            <a href="/model">Player model</a>
+            <a href="/goalkeeper">GoalKeeper model</a>
+            <a href="/about">About me</a>
             <a href="/contact">Contact</a>
         </nav>
-        <h1>À propos</h1>
+        <h1>About me</h1>
         <div class="about-container">
-            <img src="/static/profile.JPG" alt="Photo de moi" class="profile-pic">
-            <p>Je suis un jeune Data Engineer diplômé de l'ESILV, passionné de football. Mon parcours a été marqué par mon passage en formation au Paris Saint-Germain en tant que jeune joueur, de mes 11 ans à mes 18 ans.</p>
-            <p>Fort de cette double expérience, alliant expertise technique et immersion dans le monde du football de haut niveau, j'ai pour ambition de rendre accessible l'analyse statistique de ce sport fascinant.</p>
-            <p>Le football, par son aspect parfois irrationnel, en fait un sport unique et magique. Pourtant, derrière cette imprévisibilité se cachent des données qui permettent d'en comprendre certains aspects et d'analyser les performances.</p>
+            <div class="image-carousel">
+                <img src="/static/profile1.JPG" class="carousel-image">
+                <img src="/static/profile4.JPG" class="carousel-image">
+                <img src="/static/profile2.jpg" class="carousel-image">
+                <img src="/static/profile3.jpeg" class="carousel-image">
+            </div>
+            <p id="text-non-centre">I am a young Data Engineer graduated from ESILV, passionate about football.<br> 
+                My journey has been shaped by my training experience at Paris Saint-Germain as a young player, from the age of 11 to 18.   
+            </p>
+            <p id="text-non-centre">With this dual experience, combining technical expertise and immersion in the world of high-level football,<br>
+                I aim to make statistical analysis of this fascinating sport accessible.</p>
+            <p id="text-non-centre">Football, with its sometimes irrational nature, makes it a unique and magical sport.<br>
+                Yet, behind this unpredictability lie data that help understand certain aspects and analyze performances. </p>
         </div>
         <footer>
-            <p>Contactez-nous : contact@football-recommendation.com | Mentions légales | Politique de confidentialité</p>
+            <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
         </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let currentIndex = 0;
+                const images = document.querySelectorAll('.carousel-image');
+
+                console.log("Number of images found:", images.length);
+        
+                if (images.length > 0) {
+                    images[currentIndex].classList.add('active'); 
+
+                    console.log("Initial image displayed:", images[currentIndex].src);
+        
+                    setInterval(() => {
+                        images[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add('active');
+                        console.log("Next image displayed:", images[currentIndex].src);
+                    }, 3000);
+                } else {
+                    console.error("No images found for the carousel!");
+                }
+            });
+        </script>
     </body>
 </html>
