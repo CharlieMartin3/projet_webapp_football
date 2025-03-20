@@ -1,17 +1,53 @@
+:root {
+    --bg-color: #F5F5DC;
+    --text-color: #333;
+    --nav-bg-color: rgba(0, 128, 128, 0.8);
+    --footer-bg-color: rgba(0, 128, 128, 0.8);
+    --button-bg-color: #008080;
+    --button-text-color: #fff;
+    --light-background-image: url("https://images.pexels.com/photos/61143/pexels-photo-61143.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    --dark-background-image: url("https://images.pexels.com/photos/31160103/pexels-photo-31160103/free-photo-of-night-football-match-at-mohammed-bin-zayed-stadium.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+
+    
+} 
+
+/* Dark mode styles */
+[data-theme="dark"] {
+    --bg-color: #2C3930;
+    --text-color: #DCD7C9;
+    --nav-bg-color: rgba(50, 50, 50, 0.9);
+    --footer-bg-color: rgba(50, 50, 50, 0.9);
+    --button-bg-color: #333;
+    --button-text-color: #fff;
+    --light-background-image: var(--dark-background-image);
+}
+
 #index-page {
-    background-color: #F5F5DC;
-    background-image: url("https://images.pexels.com/photos/61143/pexels-photo-61143.jpeg?auto=compress&cs=tinysrgb&w=1600");
-    background-size: cover;
+    position: relative;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+#index-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--light-background-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 body {
-    background-color: #F5F5DC;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -21,10 +57,22 @@ body {
     min-height: 100vh;
 }
 
+body, #index-page {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
 nav {
-    background-color: rgba(0, 128, 128, 0.8);
+    background-color: var(--nav-bg-color);
     padding: 15px;
     text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav a {
@@ -32,6 +80,7 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -39,7 +88,7 @@ nav a:hover {
 }
 
 footer {
-    background-color: rgba(0, 128, 128, 0.8);
+    background-color: var(--footer-bg-color);
     padding: 10px;
     text-align: center;
     color: white;
@@ -50,17 +99,14 @@ footer {
 
 h1 {
     text-align: center;
-    color: #333;
     font-weight: 600;
 }
 #h2-left {
     text-align: left;
-    color: #333;
     font-weight: 600;
 }
 
 h2 {
-    color: #333;
     font-weight: 600;
 }
 
@@ -77,7 +123,6 @@ p {
     font-size: larger;
     word-wrap: break-word;
     /*max-width: 900px;*/
-    color: #333;
     font-weight: 400;
 }
 
@@ -89,10 +134,14 @@ p-left {
     text-align: left;
 }
 
+p, h1, h2 {
+    color: var(--text-color);
+}
+
 #model-description {
     text-align: center;
     font-size: larger;
-    color: #333;
+    color: var(--text-color);
     font-weight: 400;
     margin-top: 20px;
 }
@@ -101,8 +150,8 @@ button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #008080;
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border-radius: 20px;
     font-size: larger;
     font-weight: 600;
@@ -120,7 +169,7 @@ input[type="text"], input[type="number"] {
 
 label {
     font-size: larger;
-    color: #333;
+    color:var(--text-color);
     font-weight: 400;
     margin-bottom: 10px;
   }  
@@ -209,3 +258,79 @@ form {
     display: block; 
 }
 
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: #ddd;
+}
+
+.theme-toggle:focus {
+    outline: none;
+}
+
+[data-theme="dark"] nav a:hover {
+    color: #bbb;
+}
+
+/* Dark mode specific colors */
+[data-theme="dark"] .theme-toggle:hover {
+    color: #bbb;
+}
+
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

@@ -4,23 +4,48 @@
         <title>About me - Football Player Recommendation System</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/static/styles.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const theme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+                updateThemeIcon(theme);
+            });
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            }
+            function updateThemeIcon(theme) {
+                const button = document.querySelector('.theme-toggle');
+                button.textContent = theme === 'light' ? '🌙' : '☀️';
+            }
+        </script>
     </head>
     <body>
         <nav>
-            <a href="/">Home</a>
-            <a href="/model">Player model</a>
-            <a href="/goalkeeper">GoalKeeper model</a>
-            <a href="/about">About me</a>
-            <a href="/contact">Contact</a>
-        </nav>
+            <div>
+                <a href="/">Home</a>
+                <a href="/model">Player model</a>
+                <a href="/goalkeeper">GoalKeeper model</a>
+                <a href="/about">About me</a>
+                <a href="/contact">Contact</a>
+            </div>          
+          <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      </nav>
         <h1>About me</h1>
-        <div class="about-container">
-            <div class="image-carousel">
+        <div class="carousel">
+            <div class=".carousel-images">
                 <img src="/static/profile1.JPG" class="carousel-image">
                 <img src="/static/profile4.JPG" class="carousel-image">
                 <img src="/static/profile2.jpg" class="carousel-image">
                 <img src="/static/profile3.jpeg" class="carousel-image">
             </div>
+            <button class="carousel-button prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+        
             <p id="text-non-centre">I am a young Data Engineer graduated from ESILV, passionate about football.<br> 
                 My journey has been shaped by my training experience at Paris Saint-Germain as a young player, from the age of 11 to 18.   
             </p>
@@ -33,27 +58,18 @@
             <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
         </footer>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                let currentIndex = 0;
-                const images = document.querySelectorAll('.carousel-image');
-
-                console.log("Number of images found:", images.length);
-        
-                if (images.length > 0) {
-                    images[currentIndex].classList.add('active'); 
-
-                    console.log("Initial image displayed:", images[currentIndex].src);
-        
-                    setInterval(() => {
-                        images[currentIndex].classList.remove('active');
-                        currentIndex = (currentIndex + 1) % images.length;
-                        images[currentIndex].classList.add('active');
-                        console.log("Next image displayed:", images[currentIndex].src);
-                    }, 3000);
-                } else {
-                    console.error("No images found for the carousel!");
-                }
-            });
+            let currentIndex = 0;
+    
+            function moveCarousel(direction) {
+                const images = document.querySelector('.carousel-images');
+                const totalImages = images.children.length;
+                currentIndex = (currentIndex + direction + totalImages) % totalImages;
+                console.log(currentIndex)
+                console.log(totalImages)
+                images.style.transform = `translateX(${-currentIndex * 100}%)`;
+            }
+    
+            setInterval(() => moveCarousel(1), 3000); // Auto-slide every 3 seconds
         </script>
     </body>
 </html>
