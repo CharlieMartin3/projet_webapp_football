@@ -3,7 +3,7 @@
   <head>
     <title>Football Player Recommendation Model</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <script>
       document.addEventListener("DOMContentLoaded", () => {
           const theme = localStorage.getItem('theme') || 'light';
@@ -21,137 +21,176 @@
           const button = document.querySelector('.theme-toggle');
           button.textContent = theme === 'light' ? '🌙' : '☀️';
       }
-    </script>
-  </head>
-  <body>
-    <nav>
-        <div>
-            <a href="/">Home</a>
-            <a href="/model">Player model</a>
-            <a href="/goalkeeper">GoalKeeper model</a>
-            <a href="/about">About me</a>
-            <a href="/contact">Contact</a>
-        </div>          
+  </script>
+</head>
+<body>
+  <nav>
+      <div>
+        <a href="/static/index.html">Home</a>
+        <a href="/static/model.html">Player model</a>
+        <a href="/static//goalkeeper.html">GoalKeeper model</a>
+        <a href="/static//about.html">About me</a>
+        <a href="/static//contact.html">Contact</a>
+    </div>              
       <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-  </nav>
-    <button type="button" id="home-button"">Home</button>
-    <h1>Football GoalKeeper Recommendation Model</h1>
-    <form>
-      <label for="player-name">Enter goalkeeper name:</label>
-      <input type="text" id="player-name" name="player-name" list="player-list">
-      <datalist id="player-list"></datalist>
-      <label for="num-players">Number of players to see:</label>
-      <input type="number" id="num-players" name="num-players" value="10" min="1">
-      <label for="max-price">Maximum price in million euros:</label>
-      <input type="number" id="max-price" name="max-price" value="300" min="0">
-      <button type="button" onclick="getRecommendations()">Get Recommendations</button>
-    </form>
-    <div id="result"></div>
-    <footer>
-      <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
+    </nav>
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Football GoalKeeper Recommendation Model</h1>
+            <p>Find similar GoalKeeper based on performance metrics and your requirements</p>
+        </div>
+
+        <form class="model-form">
+            <div class="form-group">
+                <label for="player-name">Enter goalkeeper name:</label>
+                <input type="text" id="player-name" name="player-name" list="player-list">
+                <datalist id="player-list"></datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="num-players">Number of Goalkeepers to see:</label>
+                <input type="number" id="num-players" name="num-players" value="10" min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="max-price">Maximum price in million euros:</label>
+                <input type="number" id="max-price" name="max-price" value="300" min="0">
+            </div>
+
+            <button type="button" onclick="getRecommendations()" class="cta-button players">
+                <div class="button-content">
+                    <span class="icon">🔍</span>
+                    <span class="button-text">Get Recommendations</span>
+                </div>
+            </button>
+        </form>
+
+        <div id="result" class="results-container"></div>
+    </div>
+  </div>
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h4>Contact</h4>
+              <a>contact@football-recommendation.com</a>
+          </div>
+          <div class="footer-section">
+              <h4>Legal</h4>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+          </div>
+          <div class="footer-section">
+              <h4>Follow Us</h4>
+              <a href="#" class="social-link">Twitter</a>
+              <a href="#" class="social-link">LinkedIn</a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 Football Player Recommendation System. All rights reserved.</p>
+      </div>
   </footer>
-    <script>
-      //event on the button
-      document.getElementById("player-name").addEventListener("input", function() {
-      let query = this.value;
-      if (query.length < 2) return;  // Prevent unnecessary requests
-      fetch(`/autocomplete_GK_reserch?q=${query}`)
-        .then(response => response.json())
-        .then(data => {
-            let dataList = document.getElementById("player-list");
-            dataList.innerHTML = "";  // Clear previous options
-            data.forEach(name => {
-                let option = document.createElement("option");
-                option.value = name;
-                dataList.appendChild(option);
-                });
-            })
-        .catch(error => console.error("Error fetching autocomplete data:", error));
-        });
+  <script>
+    //event on the button
+    document.getElementById("player-name").addEventListener("input", function() {
+    let query = this.value;
+    if (query.length < 2) return;  // Prevent unnecessary requests
+    fetch(`/autocomplete_GK_reserch?q=${query}`)
+      .then(response => response.json())
+      .then(data => {
+          let dataList = document.getElementById("player-list");
+          dataList.innerHTML = "";  // Clear previous options
+          data.forEach(name => {
+              let option = document.createElement("option");
+              option.value = name;
+              dataList.appendChild(option);
+              });
+          })
+      .catch(error => console.error("Error fetching autocomplete data:", error));
+      });
 
-      //event on the button
-      document.getElementById("home-button").addEventListener("click", function() {window.location.href = "/index";});
+    //event on the button
+    document.getElementById("home-button").addEventListener("click", function() {window.location.href = "/index";});
 
-      // Validate form before submission
-      function validateForm() {
-        let playerName = document.getElementById("player-name").value;
-        let numPlayers = document.getElementById("num-players").value;
-        let maxPrice = document.getElementById("max-price").value;
-        let dataList = document.getElementById("player-list");
-        let options = Array.from(dataList.options).map(option => option.value);
+    // Validate form before submission
+    function validateForm() {
+      let playerName = document.getElementById("player-name").value;
+      let numPlayers = document.getElementById("num-players").value;
+      let maxPrice = document.getElementById("max-price").value;
+      let dataList = document.getElementById("player-list");
+      let options = Array.from(dataList.options).map(option => option.value);
 
-        // Validate player name
-        if (!options.includes(playerName)) {
-            alert("Please select a valid player name from the list.");
-            return false; // Prevent form submission
-        }
+      // Validate player name
+      if (!options.includes(playerName)) {
+          alert("Please select a valid player name from the list.");
+          return false; // Prevent form submission
+      }
 
-        // Validate number of players
-        if (!Number.isInteger(Number(numPlayers)) || Number(numPlayers) <= 0) {
-            alert("Number of players must be a positive integer greater than 0.");
-            return false;
-        }
+      // Validate number of players
+      if (!Number.isInteger(Number(numPlayers)) || Number(numPlayers) <= 0) {
+          alert("Number of players must be a positive integer greater than 0.");
+          return false;
+      }
 
-        // Validate max price
-        if (!Number.isInteger(Number(maxPrice)) || Number(maxPrice) <= 0) {
-            alert("Maximum price must be a positive integer greater than 0.");
-            return false;
-        }
+      // Validate max price
+      if (!Number.isInteger(Number(maxPrice)) || Number(maxPrice) <= 0) {
+          alert("Maximum price must be a positive integer greater than 0.");
+          return false;
+      }
 
-        return true; // Allow form submission
-      }    
+      return true; // Allow form submission
+    }    
 
-      function getRecommendations() {
+    function getRecommendations() {
 
-        // Prevent form submission from refreshing the page
-        event.preventDefault();
+      // Prevent form submission from refreshing the page
+      event.preventDefault();
 
-        // Validate form first
-        if (!validateForm()) {
-            return;
-        }
+      // Validate form first
+      if (!validateForm()) {
+          return;
+      }
 
-        const playerName = document.getElementById("player-name").value;
-        const numPlayers = document.getElementById("num-players").value;
-        const maxPrice = document.getElementById("max-price").value;
+      const playerName = document.getElementById("player-name").value;
+      const numPlayers = document.getElementById("num-players").value;
+      const maxPrice = document.getElementById("max-price").value;
 
-        //console.log(playerName);
-        //console.log(numPlayers);
-        //console.log(maxPrice);
-        
-        fetch(`/goalkeeper/${playerName}/nombre/${numPlayers}/prix_max/${maxPrice}`).then(response => response.json()).then(data => {
-            
-            console.log(data);
+      //console.log(playerName);
+      //console.log(numPlayers);
+      //console.log(maxPrice);
+      
+      fetch(`/goalkeeper/${playerName}/nombre/${numPlayers}/prix_max/${maxPrice}`).then(response => response.json()).then(data => {
+          
+          console.log(data);
 
-            let table = `<table>`;
+          let table = `<table>`;
 
-            // Display the returned dataframe in a table
-            // Check if the response includes column headers
-            if (data.columns && Array.isArray(data.columns)) {
-                table += `<tr>`;
-                for (let column of data.columns) {
-                    table += `<th>${column}</th>`; 
-                }
-                table += `</tr>`;
-            }
-            
-            for (let row of data.data) {
-              console.log(row);
-                table += `<tr>`;
-                for (let cell of row) {
-                    table += `<td>${cell}</td>`;
-                }
-                table += `</tr>`;
-            }
-            table += `</table>`;
-            console.log(table);
-            document.getElementById("result").innerHTML = table;
-        })
-        .catch(error => {
-        console.error(error);
-        document.getElementById("result").innerHTML = `Error: ${error}`;        
-        });
-        }
-    </script>
+          // Display the returned dataframe in a table
+          // Check if the response includes column headers
+          if (data.columns && Array.isArray(data.columns)) {
+              table += `<tr>`;
+              for (let column of data.columns) {
+                  table += `<th>${column}</th>`; 
+              }
+              table += `</tr>`;
+          }
+          
+          for (let row of data.data) {
+            console.log(row);
+              table += `<tr>`;
+              for (let cell of row) {
+                  table += `<td>${cell}</td>`;
+              }
+              table += `</tr>`;
+          }
+          table += `</table>`;
+          console.log(table);
+          document.getElementById("result").innerHTML = table;
+      })
+      .catch(error => {
+      console.error(error);
+      document.getElementById("result").innerHTML = `Error: ${error}`;        
+      });
+      }
+  </script>
   </body>
  </html>

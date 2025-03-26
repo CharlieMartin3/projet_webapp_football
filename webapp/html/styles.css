@@ -34,7 +34,7 @@
 
 #index-page::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -43,7 +43,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: blur(8px);
+    filter: brightness(0.7);
     z-index: -1;
 }
 
@@ -89,12 +89,73 @@ nav a:hover {
 
 footer {
     background-color: var(--footer-bg-color);
-    padding: 10px;
+    padding: 2rem 0 1rem 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+}
+
+.footer-section h4 {
     color: white;
-    position: relative; 
-    width: 100%;
-    margin-top: auto; 
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-section p,
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-link {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        padding: 0 1rem;
+    }
 }
 
 h1 {
@@ -159,6 +220,17 @@ button {
     box-shadow: 2px 2px #000;
 }
 
+[data-theme="light"] button {
+    background-color: #006666; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+/* Keep dark theme styles distinct */
+[data-theme="dark"] button {
+    text-shadow: 2px 2px #000; 
+}
+
 input[type="text"], input[type="number"] {
     padding: 10px;
     font-size: larger;
@@ -204,6 +276,25 @@ label {
     background-color: #e0e0e0;
 }
 
+/* Add dark mode specific styles */
+[data-theme="dark"] #result {
+    color: white;
+}
+
+[data-theme="dark"] #result th,
+[data-theme="dark"] #result td {
+    color: white;
+    border-color: #666;
+}
+
+[data-theme="dark"] #result th {
+    background-color: #444;
+}
+
+[data-theme="dark"] #result tr:hover {
+    background-color: #444;
+}
+
 #model-description ul {
     list-style-type: none; 
     padding-left: 0; 
@@ -244,7 +335,7 @@ form {
     height: 400px; 
     width: 100%; 
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
     margin-top: 20px; 
 }
 
@@ -293,7 +384,6 @@ form {
     position: relative;
     width: 80%;
     margin: 20px auto;
-    overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -333,4 +423,397 @@ form {
 
 .next {
     right: 10px;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    width: 90%;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    background: transparent;
+    min-width: 250px;
+}
+
+.button-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button.players .hover-effect {
+    background: linear-gradient(135deg, #2C5F2D, #97BC62);
+}
+
+.cta-button.keepers .hover-effect {
+    background: linear-gradient(135deg, #00A896, #028090);
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:hover .button-content {
+    transform: scale(1.05);
+}
+
+.cta-button:hover .hover-effect {
+    opacity: 0.9;
+}
+
+.icon {
+    font-size: 1.4rem;
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .feature-card {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .feature-card h3 {
+    color: var(--accent-color);
+}
+
+.feature-card p {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .feature-card p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .feature-card {
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Updated Leagues Coverage Section */
+.leagues-coverage {
+    padding: 4rem 2rem;
+    background-color: var(--bg-color);
+}
+
+.leagues-coverage h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.leagues-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.league {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    transition: var(--transition);
+}
+
+.league img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    /* Remove all special background handling */
+    background: white;
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .league img {
+    background: white; /* Keep white background in dark mode */
+}
+
+.league span {
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.league:hover {
+    transform: translateY(-5px);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .hero-content {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .hero-content h1 {
+    background: linear-gradient(45deg, #ffffff, #cccccc);
+    -webkit-background-clip: text;
+}
+
+/* Common page styles (non-index pages) */
+body:not(#index-page) {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Common container for all pages */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 90%;
+}
+
+/* Common page headers */
+.page-header {
+    text-align: center;
+    margin: 2rem 0 3rem;
+    padding: 2rem;
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+/* Form styling for model pages */
+.model-form {
+    background: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Results table styling */
+.results-container {
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.results-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Contact page specific styles */
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.contact-card .icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* About page specific styles */
+.about-content {
+    background: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
 }

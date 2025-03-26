@@ -3,7 +3,7 @@
   <head>
     <title>Football Player Recommendation Model</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <script>
       document.addEventListener("DOMContentLoaded", () => {
           const theme = localStorage.getItem('theme') || 'light';
@@ -26,34 +26,69 @@
 <body>
   <nav>
       <div>
-          <a href="/">Home</a>
-          <a href="/model">Player model</a>
-          <a href="/goalkeeper">GoalKeeper model</a>
-          <a href="/about">About me</a>
-          <a href="/contact">Contact</a>
-      </div>          
+        <a href="/static/index.html">Home</a>
+        <a href="/static/model.html">Player model</a>
+        <a href="/static//goalkeeper.html">GoalKeeper model</a>
+        <a href="/static//about.html">About me</a>
+        <a href="/static//contact.html">Contact</a>
+    </div>              
       <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     </nav>
-    <button type="button" id="home-button"">Home</button>
-    <h1>Football Player Recommendation Model</h1>
-    <form>
-      <label for="player-name">Enter player name:</label>
-      <input type="text" id="player-name" name="player-name" list="player-list">
-      <datalist id="player-list"></datalist>
-      <label for="num-players">Number of players to see:</label>
-      <input type="number" id="num-players" name="num-players" value="10" min="1">
-      <label for="max-price">Maximum price in million euros:</label>
-      <input type="number" id="max-price" name="max-price" value="300" min="0">
-      <button type="submit" onclick="getRecommendations()">Get Recommendations</button>
-    </form>
-    <div id="result"></div>
-    <footer>
-      <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
-  </footer>
-    <script>
-      //event on the button
-      document.getElementById("home-button").addEventListener("click", function() {window.location.href = "/index";});
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Football Player Recommendation Model</h1>
+            <p>Find similar players based on performance metrics and your requirements</p>
+        </div>
 
+        <form class="model-form">
+            <div class="form-group">
+                <label for="player-name">Enter player name:</label>
+                <input type="text" id="player-name" name="player-name" list="player-list">
+                <datalist id="player-list"></datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="num-players">Number of players to see:</label>
+                <input type="number" id="num-players" name="num-players" value="10" min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="max-price">Maximum price in million euros:</label>
+                <input type="number" id="max-price" name="max-price" value="300" min="0">
+            </div>
+
+            <button type="button" onclick="getRecommendations()" class="cta-button players">
+                <div class="button-content">
+                    <span class="icon">🔍</span>
+                    <span class="button-text">Get Recommendations</span>
+                </div>
+            </button>
+        </form>
+
+        <div id="result" class="results-container"></div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a>contact@football-recommendation.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Football Player Recommendation System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
       //event on the button
       document.getElementById("player-name").addEventListener("input", function() {
         let query = this.value;

@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Football Player Recommendation System</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" href="styles.css">
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const theme = localStorage.getItem('theme') || 'light';
@@ -25,31 +26,111 @@
     </head>
     <body id="index-page">
         <nav>
-            <div>
-                <a href="/">Home</a>
-                <a href="/model">Player model</a>
-                <a href="/goalkeeper">GoalKeeper model</a>
-                <a href="/about">About me</a>
-                <a href="/contact">Contact</a>
-            </div>          
+            <a href="/static/index.html">Home</a>
+            <a href="/static/model.html">Player model</a>
+            <a href="/static//goalkeeper.html">GoalKeeper model</a>
+            <a href="/static//about.html">About me</a>
+            <a href="/static//contact.html">Contact</a>         
           <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
       </nav>
-        <h1>Welcome to our Football Player Recommendation System</h1>
-        <div id="model-description">
-            <p class="p-center">Our system uses advanced machine learning algorithms to recommend the best players for your team.</p>
-            <p class="p-center">Our model is based on cosine similarity between players from the top 5 European leagues:</p>
-            <ul>
-                <li>English Premier League</li>
-                <li>La Liga</li>
-                <li>Bundesliga</li>
-                <li>Serie A</li>
-                <li>Ligue 1</li>
-            </ul>
-        </div>
-        <button onclick="window.location.href='/model'">Start Using the Model</button>
-        <button onclick="window.location.href='/goalkeeper'">Start Using the GoalKeeper Model</button>
+
+        <main class="hero-section">
+            <div class="hero-content">
+                <h1>AI-Powered Football Scouting</h1>
+                <p class="hero-subtitle">Discover your team's next star using advanced machine learning</p>
+                
+                <div class="cta-container">
+                    <button class="cta-button players" onclick="window.location.href='model.html'">
+                        <div class="button-content">
+                            <span class="icon">⚽</span>
+                            <span class="button-text">Find Field Players</span>
+                        </div>
+                        <div class="hover-effect"></div>
+                    </button>
+
+                    <button class="cta-button keepers" onclick="window.location.href='goalkeeper.html'">
+                        <div class="button-content">
+                            <span class="icon">🧤</span>
+                            <span class="button-text">Find Goalkeepers</span>
+                        </div>
+                        <div class="hover-effect"></div>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <section class="features">
+            <h2>Why Choose Our AI System?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Precise Matching</h3>
+                    <p>Advanced algorithms analyze over 100 performance metrics to find the perfect player match</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data-Driven</h3>
+                    <p>Powered by comprehensive statistics from Europe's top 5 leagues</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Budget-Aware</h3>
+                    <p>Filter recommendations based on your budget constraints</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Regular updates ensure you get the most current player recommendations</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leagues-coverage">
+            <h2>Comprehensive League Coverage</h2>
+            <div class="leagues-grid">
+                <div class="league">
+                    <img src="premier-league-logo.png" alt="Premier League">
+                    <span>Premier League</span>
+                </div>
+                <div class="league">
+                    <img src="laliga-logo.png" alt="La Liga">
+                    <span>La Liga</span>
+                </div>
+                <div class="league">
+                    <img src="bundesliga-logo.png" alt="Bundesliga">
+                    <span>Bundesliga</span>
+                </div>
+                <div class="league">
+                    <img src="serie-a-logo.png" alt="Serie A">
+                    <span>Serie A</span>
+                </div>
+                <div class="league">
+                    <img src="ligue-1-logo.png" alt="Ligue 1">
+                    <span>Ligue 1</span>
+                </div>
+            </div>
+        </section>
+
         <footer>
-            <p class="p-center">Contact us: contact@football-recommendation.com | Legal Notice | Privacy Policy</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a> contact@football-recommendation.com</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Football Player Recommendation System. All rights reserved.</p>
+            </div>
         </footer>
     </body>
 </html>
