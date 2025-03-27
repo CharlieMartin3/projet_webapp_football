@@ -43,7 +43,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: brightness(0.7);
+    filter: brightness(0.7) blur(3px);
     z-index: -1;
 }
 
