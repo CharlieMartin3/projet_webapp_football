@@ -37,29 +37,66 @@
         <div class="page-container">
             <div class="page-header">
                 <h1>About Me</h1>
-                <p>Learn more about the person behind this project</p>
+                <p>Football Analytics & Data Engineering Professional</p>
             </div>
 
             <div class="about-content">
-                <div class="carousel-container">
-                    <div class="carousel-images">
-                        <img src="/static/profile1.JPG" class="carousel-image">
-                        <img src="/static/profile4.JPG" class="carousel-image">
-                        <img src="/static/profile2.jpg" class="carousel-image">
-                        <img src="/static/profile3.jpeg" class="carousel-image">
+                <div class="profile-section">
+                    <div class="profile-image-container">
+                        <img src="static/profile0.JPG" alt="Professional Profile Photo" class="profile-image">
                     </div>
-                    <button class="carousel-button prev" onclick="moveCarousel(-1)">&#10094;</button>
-                    <button class="carousel-button next" onclick="moveCarousel(1)">&#10095;</button>
+                    
+                    <div class="profile-info">
+                        <h2>Background</h2>
+                        <p>As a Data Engineer graduate from ESILV, I bring a unique blend of technical expertise and practical football experience to the field of sports analytics.</p>
+                        
+                        <div class="experience-card">
+                            <h3>Professional Experience</h3>
+                            <ul>
+                                <li>🎓 Data Engineering Graduate - ESILV</li>
+                                <li>⚽ Former Paris Saint-Germain Youth Player (2016-2023)</li>
+                                <li>📊 Specialized in Football Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="about-text">
-                    <p id="text-non-centre">I am a young Data Engineer graduated from ESILV, passionate about football.<br> 
-                        My journey has been shaped by my training experience at Paris Saint-Germain as a young player, from the age of 11 to 18.   
-                    </p>
-                    <p id="text-non-centre">With this dual experience, combining technical expertise and immersion in the world of high-level football,<br>
-                        I aim to make statistical analysis of this fascinating sport accessible.</p>
-                    <p id="text-non-centre">Football, with its sometimes irrational nature, makes it a unique and magical sport.<br>
-                        Yet, behind this unpredictability lie data that help understand certain aspects and analyze performances. </p>
+                <div class="mission-section">
+                    <h2>My Mission</h2>
+                    <p>I am dedicated to bridging the gap between data science and football, making advanced statistical analysis accessible to clubs, scouts, and enthusiasts. My unique perspective combines:</p>
+                    
+                    <div class="mission-cards">
+                        <div class="mission-card">
+                            <h3>Technical Expertise</h3>
+                            <p>Leveraging modern data engineering techniques to process and analyze football statistics</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h3>Football Intelligence</h3>
+                            <p>Understanding the nuances of the game from years of high-level training experience</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h3>Innovation</h3>
+                            <p>Developing cutting-edge solutions for player analysis and scouting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-section">
+                    <h2>Career Highlights</h2>
+                    <div class="image-gallery">
+                        <img src="static/profile1.jpg" alt="Career Highlight 1" onclick="openModal(this)">
+                        <img src="static/profile2.jpg" alt="Career Highlight 2" onclick="openModal(this)">
+                        <img src="static/profile3.jpeg" alt="Career Highlight 3" onclick="openModal(this)">
+                        <img src="static/profile4.jpg" alt="Career Highlight 4" onclick="openModal(this)">
+                    </div>
+                </div>
+
+                <!-- Image Modal -->
+                <div id="imageModal" class="modal">
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                    <img id="modalImage" src="" alt="Modal Image">
                 </div>
             </div>
         </div>
@@ -86,28 +123,25 @@
         </div>
     </footer>
         <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-            let currentIndex = 0;
-
-            function moveCarousel(direction) {
-                const images = document.querySelector('.carousel-images');
-                if (!images) {
-                    console.error("Carousel images not found!");
-                    return;
-                }
-
-                const totalImages = images.children.length;
-                currentIndex = (currentIndex + direction + totalImages) % totalImages;
-                console.log(currentIndex);
-                console.log(totalImages);
-                images.style.transform = `translateX(${-currentIndex * 100}%)`;
+            // Modal functionality
+            function openModal(img) {
+                const modal = document.getElementById("imageModal");
+                const modalImg = document.getElementById("modalImage");
+                modal.style.display = "block";
+                modalImg.src = img.src;
             }
-        
 
-            setInterval(() => moveCarousel(1), 3000);
-        });
+            function closeModal() {
+                document.getElementById("imageModal").style.display = "none";
+            }
 
+            // Close modal when clicking outside the image
+            window.onclick = function(event) {
+                const modal = document.getElementById("imageModal");
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         </script>
     </body>
 </html>
