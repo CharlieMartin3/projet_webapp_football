@@ -1,0 +1,21 @@
+position,playedGames,won,draw,lost,points,goalsFor,goalsAgainst,goalDifference,team_name,team_shortName,team_tla,team_crest
+1,30,21,4,5,67,83,29,54,FC Barcelona,Barça,FCB,https://crests.football-data.org/81.png
+2,30,19,6,5,63,63,31,32,Real Madrid CF,Real Madrid,RMA,https://crests.football-data.org/86.png
+3,30,17,9,4,60,49,24,25,Club Atlético de Madrid,Atleti,ATL,https://crests.football-data.org/78.png
+4,30,14,12,4,54,46,24,22,Athletic Club,Athletic,ATH,https://crests.football-data.org/77.png
+5,29,13,9,7,48,51,39,12,Villarreal CF,Villarreal,VIL,https://crests.football-data.org/94.png
+6,30,13,9,8,48,41,37,4,Real Betis Balompié,Real Betis,BET,https://crests.football-data.org/90.png
+7,30,12,7,11,43,44,43,1,RC Celta de Vigo,Celta,CEL,https://crests.football-data.org/558.png
+8,30,12,5,13,41,30,32,-2,Real Sociedad de Fútbol,Real Sociedad,RSO,https://crests.football-data.org/92.png
+9,30,10,10,10,40,33,35,-2,Rayo Vallecano de Madrid,Rayo Vallecano,RAY,https://crests.football-data.org/87.png
+10,30,11,7,12,40,29,37,-8,RCD Mallorca,Mallorca,MAL,https://crests.football-data.org/89.png
+11,30,10,9,11,39,30,25,5,Getafe CF,Getafe,GET,https://crests.football-data.org/82.png
+12,30,9,9,12,36,34,41,-7,Sevilla FC,Sevilla FC,SEV,https://crests.football-data.org/559.png
+13,30,7,14,9,35,34,43,-9,CA Osasuna,Osasuna,OSA,https://crests.football-data.org/79.png
+14,30,9,7,14,34,37,46,-9,Girona FC,Girona,GIR,https://crests.football-data.org/298.png
+15,30,8,10,12,34,34,47,-13,Valencia CF,Valencia,VAL,https://crests.football-data.org/95.png
+16,29,8,8,13,32,31,40,-9,RCD Espanyol de Barcelona,Espanyol,ESP,https://crests.football-data.org/80.png
+17,30,7,9,14,30,33,44,-11,Deportivo Alavés,Alavés,ALA,https://crests.football-data.org/263.png
+18,30,6,10,14,28,29,47,-18,CD Leganés,Leganés,LEG,https://crests.football-data.org/745.png
+19,30,6,8,16,26,34,51,-17,UD Las Palmas,Las Palmas,LPA,https://crests.football-data.org/275.png
+20,30,4,4,22,16,19,69,-50,Real Valladolid CF,Valladolid,VDD,https://crests.football-data.org/250.png

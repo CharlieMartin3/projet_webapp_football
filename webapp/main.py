@@ -15,6 +15,12 @@ from typing import List
 
 data_joueurs = pd.read_csv("webapp/files/complete_players_data.csv") #players_data.csv
 data_gk = pd.read_csv("webapp/files/complete_gk_data.csv") #gk_data.csv
+standing_BL1 = pd.read_csv("airflow/data/BL1_standings.csv")
+standing_PL = pd.read_csv("airflow/data/PL_standings.csv")
+standing_LALIGA = pd.read_csv("airflow/data/PD_standings.csv")
+standing_SERIEA = pd.read_csv("airflow/data/SA_standings.csv")
+standing_LIGUE1 = pd.read_csv("airflow/data/FL1_standings.csv")
+
 
 # --------------------------------------------- PLAYERS AI MODEL PART ---------------------------------------------
 
@@ -175,7 +181,34 @@ def home():
 async def read_item(request: Request, id: str):
     return templates.TemplateResponse("item.html", {"request": request, "id": id})
 
+@app.get("/standings", response_class=HTMLResponse)
+async def standings_page(request: Request):
+    return templates.TemplateResponse("standings.html", {"request": request})
 
+
+@app.get("/api/standings")
+async def get_standings(league: str):
+    if league == "premier-league":
+        standings = standing_PL
+        print(standings)
+    elif league == "laliga":
+        standings = standing_LALIGA
+    elif league == "bundesliga":
+        standings = standing_BL1
+    elif league == "serie-a":
+        standings = standing_SERIEA
+    elif league == "ligue-1":
+        standings = standing_LIGUE1
+    else:
+        return {"error": "Invalid league specified"}
+
+    standings = standings.fillna('NA')
+    standings = standings[['position','team_shortName','points','playedGames','won','draw','lost','goalsFor','goalsAgainst','goalDifference']]
+    res = {
+        "columns": standings.columns.tolist(),
+        "data": standings.values.tolist() 
+    }
+    return res
 
 #if __name__ == "__main__":
 #    uvicorn.run(app, host="0.0.0.0", port=80)    

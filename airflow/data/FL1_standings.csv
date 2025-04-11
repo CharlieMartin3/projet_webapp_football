@@ -1,0 +1,19 @@
+position,playedGames,won,draw,lost,points,goalsFor,goalsAgainst,goalDifference,team_name,team_shortName,team_tla,team_crest
+1,28,23,5,0,74,80,26,54,Paris Saint-Germain FC,PSG,PSG,https://crests.football-data.org/524.png
+2,28,16,4,8,52,57,38,19,Olympique de Marseille,Marseille,MAR,https://crests.football-data.org/516.png
+3,28,15,5,8,50,54,35,19,AS Monaco FC,Monaco,ASM,https://crests.football-data.org/548.png
+4,28,14,7,7,49,46,35,11,RC Strasbourg Alsace,Strasbourg,RC ,https://crests.football-data.org/576.png
+5,28,14,6,8,48,54,38,16,Olympique Lyonnais,Olympique Lyon,LYO,https://crests.football-data.org/523.png
+6,28,13,8,7,47,52,35,17,OGC Nice,Nice,NIC,https://crests.football-data.org/522.png
+7,28,13,8,7,47,42,30,12,Lille OSC,Lille,LIL,https://crests.football-data.org/521.png
+8,28,13,4,11,43,44,43,1,Stade Brestois 29,Brest,BRE,https://crests.football-data.org/512.png
+9,28,12,6,10,42,32,30,2,Racing Club de Lens,RC Lens,RCL,https://crests.football-data.org/546.png
+10,28,10,8,10,38,39,39,0,AJ Auxerre,Auxerre,AJA,https://crests.football-data.org/519.png
+11,28,9,7,12,34,37,36,1,Toulouse FC,Toulouse,TOU,https://crests.football-data.org/511.png
+12,28,10,2,16,32,38,38,0,Stade Rennais FC 1901,Stade Rennais,REN,https://crests.football-data.org/529.png
+13,28,7,9,12,30,33,47,-14,FC Nantes,Nantes,NAN,https://crests.football-data.org/543.png
+14,28,7,6,15,27,26,46,-20,Angers SCO,Angers SCO,ANG,https://crests.football-data.org/532.png
+15,28,8,3,17,27,31,57,-26,Le Havre AC,Le Havre,HAC,https://crests.football-data.org/533.png
+16,28,6,8,14,26,29,42,-13,Stade de Reims,Stade de Reims,SDR,https://crests.football-data.org/547.png
+17,28,6,5,17,23,28,64,-36,AS Saint-Étienne,Saint-Étienne,ASS,https://crests.football-data.org/527.png
+18,28,4,3,21,15,21,64,-43,Montpellier HSC,Montpellier,MON,https://crests.football-data.org/518.png

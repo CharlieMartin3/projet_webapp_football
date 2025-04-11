@@ -1,0 +1,21 @@
+position,playedGames,won,draw,lost,points,goalsFor,goalsAgainst,goalDifference,team_name,team_shortName,team_tla,team_crest
+1,31,22,7,2,73,72,30,42,Liverpool FC,Liverpool,LIV,https://crests.football-data.org/64.png
+2,31,17,11,3,62,56,26,30,Arsenal FC,Arsenal,ARS,https://crests.football-data.org/57.png
+3,31,17,6,8,57,51,37,14,Nottingham Forest FC,Nottingham,NOT,https://crests.football-data.org/351.png
+4,31,15,8,8,53,54,37,17,Chelsea FC,Chelsea,CHE,https://crests.football-data.org/61.png
+5,30,16,5,9,53,52,39,13,Newcastle United FC,Newcastle,NEW,https://crests.football-data.org/67.png
+6,31,15,7,9,52,57,40,17,Manchester City FC,Man City,MCI,https://crests.football-data.org/65.png
+7,31,14,9,8,51,46,46,0,Aston Villa FC,Aston Villa,AVL,https://crests.football-data.org/58.png
+8,31,13,9,9,48,47,42,5,Fulham FC,Fulham,FUL,https://crests.football-data.org/63.png
+9,31,12,11,8,47,49,47,2,Brighton & Hove Albion FC,Brighton Hove,BHA,https://crests.football-data.org/397.png
+10,31,12,9,10,45,51,40,11,AFC Bournemouth,Bournemouth,BOU,https://crests.football-data.org/bournemouth.png
+11,30,11,10,9,43,39,35,4,Crystal Palace FC,Crystal Palace,CRY,https://crests.football-data.org/354.png
+12,31,12,6,13,42,51,47,4,Brentford FC,Brentford,BRE,https://crests.football-data.org/402.png
+13,31,10,8,13,38,37,41,-4,Manchester United FC,Man United,MUN,https://crests.football-data.org/66.png
+14,31,11,4,16,37,58,45,13,Tottenham Hotspur FC,Tottenham,TOT,https://crests.football-data.org/73.png
+15,31,7,14,10,35,33,38,-5,Everton FC,Everton,EVE,https://crests.football-data.org/62.png
+16,31,9,8,14,35,35,52,-17,West Ham United FC,West Ham,WHU,https://crests.football-data.org/563.png
+17,31,9,5,17,32,43,59,-16,Wolverhampton Wanderers FC,Wolverhampton,WOL,https://crests.football-data.org/76.png
+18,31,4,8,19,20,31,65,-34,Ipswich Town FC,Ipswich Town,IPS,https://crests.football-data.org/349.png
+19,31,4,5,22,17,25,70,-45,Leicester City FC,Leicester City,LEI,https://crests.football-data.org/338.png
+20,31,2,4,25,10,23,74,-51,Southampton FC,Southampton,SOU,https://crests.football-data.org/340.png

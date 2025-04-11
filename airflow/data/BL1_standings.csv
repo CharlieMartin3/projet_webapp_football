@@ -1,0 +1,19 @@
+position,playedGames,won,draw,lost,points,goalsFor,goalsAgainst,goalDifference,team_name,team_shortName,team_tla,team_crest
+1,28,21,5,2,68,81,27,54,FC Bayern München,Bayern,FCB,https://crests.football-data.org/5.png
+2,28,18,8,2,62,63,34,29,Bayer 04 Leverkusen,Leverkusen,B04,https://crests.football-data.org/3.png
+3,28,14,6,8,48,55,42,13,Eintracht Frankfurt,Frankfurt,SGE,https://crests.football-data.org/19.png
+4,28,13,7,8,46,46,32,14,1. FSV Mainz 05,Mainz,M05,https://crests.football-data.org/15.png
+5,28,12,9,7,45,44,35,9,RB Leipzig,RB Leipzig,RBL,https://crests.football-data.org/721.png
+6,28,13,5,10,44,45,41,4,Borussia Mönchengladbach,M'gladbach,BMG,https://crests.football-data.org/18.png
+7,28,12,6,10,42,38,44,-6,SC Freiburg,Freiburg,SCF,https://crests.football-data.org/17.png
+8,28,12,5,11,41,52,43,9,Borussia Dortmund,Dortmund,BVB,https://crests.football-data.org/4.png
+9,28,11,7,10,40,51,44,7,VfB Stuttgart,Stuttgart,VFB,https://crests.football-data.org/10.png
+10,28,11,6,11,39,45,53,-8,SV Werder Bremen,Bremen,SVW,https://crests.football-data.org/12.png
+11,28,10,9,9,39,31,39,-8,FC Augsburg,Augsburg,FCA,https://crests.football-data.org/16.png
+12,28,10,8,10,38,49,42,7,VfL Wolfsburg,Wolfsburg,WOB,https://crests.football-data.org/11.png
+13,28,9,6,13,33,26,40,-14,1. FC Union Berlin,Union Berlin,UNB,https://crests.football-data.org/28.png
+14,28,6,9,13,27,34,52,-18,TSG 1899 Hoffenheim,Hoffenheim,TSG,https://crests.football-data.org/2.png
+15,28,7,5,16,26,23,34,-11,FC St. Pauli 1910,St. Pauli,STP,https://crests.football-data.org/20.png
+16,28,6,4,18,22,32,53,-21,1. FC Heidenheim 1846,Heidenheim,HEI,https://crests.football-data.org/44.png
+17,28,5,5,18,20,28,59,-31,VfL Bochum 1848,Bochum,BOC,https://crests.football-data.org/36.png
+18,28,4,6,18,18,39,68,-29,Holstein Kiel,Holstein Kiel,KSV,https://crests.football-data.org/720.png

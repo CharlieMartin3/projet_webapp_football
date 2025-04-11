@@ -1,0 +1,21 @@
+position,playedGames,won,draw,lost,points,goalsFor,goalsAgainst,goalDifference,team_name,team_shortName,team_tla,team_crest
+1,31,20,8,3,68,69,30,39,FC Internazionale Milano,Inter,INT,https://crests.football-data.org/108.png
+2,31,19,8,4,65,48,25,23,SSC Napoli,Napoli,NAP,https://crests.football-data.org/113.png
+3,31,17,7,7,58,63,30,33,Atalanta BC,Atalanta,ATA,https://crests.football-data.org/102.png
+4,31,15,12,4,57,51,35,16,Bologna FC 1909,Bologna,BOL,https://crests.football-data.org/103.png
+5,31,14,14,3,56,47,29,18,Juventus FC,Juventus,JUV,https://crests.football-data.org/109.png
+6,31,16,7,8,55,52,42,10,SS Lazio,Lazio,LAZ,https://crests.football-data.org/110.png
+7,31,15,8,8,53,46,31,15,AS Roma,Roma,ROM,https://crests.football-data.org/100.png
+8,31,15,7,9,52,49,32,17,ACF Fiorentina,Fiorentina,FIO,https://crests.football-data.org/99.png
+9,31,13,9,9,48,47,37,10,AC Milan,Milan,MIL,https://crests.football-data.org/98.png
+10,31,9,13,9,40,36,36,0,Torino FC,Torino,TOR,https://crests.football-data.org/586.png
+11,31,11,7,13,40,36,42,-6,Udinese Calcio,Udinese,UDI,https://crests.football-data.org/115.png
+12,31,9,11,11,38,29,38,-9,Genoa CFC,Genoa,GEN,https://crests.football-data.org/107.png
+13,31,8,9,14,33,39,48,-9,Como 1907,Como 1907,COM,https://crests.football-data.org/7397.png
+14,31,9,4,18,31,30,59,-29,Hellas Verona FC,Verona,HVE,https://crests.football-data.org/450.png
+15,31,7,9,15,30,31,44,-13,Cagliari Calcio,Cagliari,CAG,https://crests.football-data.org/104.png
+16,31,5,12,14,27,37,51,-14,Parma Calcio 1913,Parma,PAR,https://crests.football-data.org/112.png
+17,31,6,8,17,26,22,50,-28,US Lecce,Lecce,USL,https://crests.football-data.org/5890.png
+18,31,4,12,15,24,24,47,-23,Empoli FC,Empoli,EMP,https://crests.football-data.org/445.png
+19,31,3,12,16,21,24,44,-20,Venezia FC,Venezia FC,VEN,https://crests.football-data.org/454.png
+20,31,2,9,20,15,25,55,-30,AC Monza,Monza,MON,https://crests.football-data.org/5911.png

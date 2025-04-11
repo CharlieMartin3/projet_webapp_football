@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>League Standings - Football Player Recommendation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const theme = localStorage.getItem('theme') || 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          updateThemeIcon(theme);
+      });
+      function toggleTheme() {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeIcon(newTheme);
+      }
+      function updateThemeIcon(theme) {
+          const button = document.querySelector('.theme-toggle');
+          button.textContent = theme === 'light' ? '🌙' : '☀️';
+      }
+      function fetchStandings() {
+        const league = document.getElementById('league-select').value;
+        fetch(`/api/standings?league=${league}`)
+            .then(response => response.json())
+            .then(data => {
+                const standingsTable = document.getElementById('standings-table');
+                standingsTable.innerHTML = ''; // Clear previous standings
+
+                // Check if data is valid
+                if (!data || !data.columns || !data.data) {
+                    standingsTable.innerHTML = '<tr><td colspan="100%">No standings data available.</td></tr>';
+                    return;
+                }
+
+                const pointsIndex = data.columns.findIndex(col => col.toLowerCase() === 'points');
+
+                let headers = '<tr>';
+                data.columns.forEach((col, i) => {
+                    if (i === pointsIndex) {
+                        console.log(i)
+                        headers += `<th class="highlight-points">${col}</th>`;
+                    } else {
+                        headers += `<th>${col}</th>`;
+                    }
+                });
+                headers += '</tr>';
+                standingsTable.innerHTML += headers;
+
+                // Populate table with dynamic data rows
+                data.data.forEach(row => {
+                    let htmlRow = '<tr>';
+
+                    row.forEach((cell, i) => {
+                        if (i === pointsIndex) {
+                            console.log(i)
+                            htmlRow += `<td class="highlight-points">${cell}</td>`;
+                        } else {
+                            htmlRow += `<td>${cell}</td>`;
+                        }
+                    });
+
+                    htmlRow += '</tr>';
+                    console.log(htmlRow); 
+                    standingsTable.innerHTML += htmlRow;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching standings:', error);
+                document.getElementById('standings-table').innerHTML =
+                    '<tr><td colspan="100%">Failed to load standings data.</td></tr>';
+            });
+    }
+    </script>
+</head>
+<body>
+  <nav>
+        <div>
+            <a href="/index">Home</a>
+            <a href="/standings">Standings</a>
+            <a href="/model">Player model</a>
+            <a href="/goalkeeper">GoalKeeper model</a>
+            <a href="/about">About me</a>
+            <a href="/contact">Contact</a>
+        </div>             
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </nav>
+    <div class="page-container">
+        <div class="page-header">
+            <h1>League Standings</h1>
+            <p>Select a league to view the current standings.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="league-select">Choose a league:</label>
+            <select id="league-select" onchange="fetchStandings()">
+                <option value="premier-league">Premier League</option>
+                <option value="laliga">La Liga</option>
+                <option value="bundesliga">Bundesliga</option>
+                <option value="serie-a">Serie A</option>
+                <option value="ligue-1">Ligue 1</option>
+            </select>
+        </div>
+
+        <div id="result" class="results-container">
+            <table id="standings-table"></table>
+        </div>
+
+    </div>
+  </div>
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h4>Contact</h4>
+              <a>contact@football-recommendation.com</a>
+          </div>
+          <div class="footer-section">
+              <h4>Legal</h4>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+          </div>
+          <div class="footer-section">
+              <h4>Follow Us</h4>
+              <a href="#" class="social-link">Twitter</a>
+              <a href="#" class="social-link">LinkedIn</a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2025 Football Player Recommendation System. All rights reserved.</p>
+      </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const league = urlParams.get('league');
+        if (league) {
+            document.getElementById('league-select').value = league;
+            fetchStandings();
+        }
+    });
+</script>
+</body>
+</html>
