@@ -11,15 +11,26 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from typing import List
+from sqlalchemy import create_engine
 
+
+# create the engine
+DB_USER = "admin_football"
+DB_PASSWORD = "Cha+Nat2!0897"
+DB_HOST = "database-1.cpyi2k0umh5a.eu-north-1.rds.amazonaws.com"
+DB_PORT = "5432"
+DB_NAME = "website_football_db"
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+engine = create_engine(DATABASE_URL)
 
 data_joueurs = pd.read_csv("webapp/files/complete_players_data.csv") #players_data.csv
 data_gk = pd.read_csv("webapp/files/complete_gk_data.csv") #gk_data.csv
-standing_BL1 = pd.read_csv("airflow/data/BL1_standings.csv")
-standing_PL = pd.read_csv("airflow/data/PL_standings.csv")
-standing_LALIGA = pd.read_csv("airflow/data/PD_standings.csv")
-standing_SERIEA = pd.read_csv("airflow/data/SA_standings.csv")
-standing_LIGUE1 = pd.read_csv("airflow/data/FL1_standings.csv")
+
+standing_BL1 = pd.read_sql('SELECT * FROM "BL1_standings"', engine)
+standing_PL = pd.read_sql('SELECT * FROM "PL_standings"', engine)
+standing_LALIGA = pd.read_sql('SELECT * FROM "PD_standings"', engine)
+standing_SERIEA = pd.read_sql('SELECT * FROM "SA_standings"', engine)
+standing_LIGUE1 = pd.read_sql('SELECT * FROM "FL1_standings"', engine)
 
 
 # --------------------------------------------- PLAYERS AI MODEL PART ---------------------------------------------
