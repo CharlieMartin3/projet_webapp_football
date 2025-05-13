@@ -18,11 +18,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 16.171.172.140 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 51.20.44.111 >> ~/.ssh/known_hosts
 
       - name: Deploy to AWS
         run: |
-          ssh ubuntu@16.171.172.140 << 'EOF'
+          ssh ubuntu@51.20.44.111 << 'EOF'
             cd ~/projet_webapp
             git pull origin main
             docker-compose up --build -d
