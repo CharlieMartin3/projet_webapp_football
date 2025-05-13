@@ -2,6 +2,24 @@ import requests
 import json
 import pandas as pd
 import time
+from sqlalchemy import create_engine
+
+def insert_to_postgres(df, table_name):
+
+    db_user = "admin_football"
+    db_password = "Cha+Nat2!0897"
+    db_host = "database-1.cpyi2k0umh5a.eu-north-1.rds.amazonaws.com"
+    db_port = "5432"
+    db_name = "website_football_db"
+
+    # Connexion via SQLAlchemy
+    engine = create_engine(f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}")
+
+    try:
+        df.to_sql(table_name, engine, if_exists='replace', index=False)
+        print(f"✅ Données insérées dans la table {table_name}")
+    except Exception as e:
+        print(f"❌ Erreur lors de l'insertion dans PostgreSQL : {e}")
 
 
 def leagues_standing_ingestion(league_name,HEADERS):
@@ -22,6 +40,9 @@ def leagues_standing_ingestion(league_name,HEADERS):
         filename = f"/opt/airflow/data/{league_name}_standings.csv"
         df_standings.to_csv(filename, index=False)
 
+        # insert to postgres table
+        insert_to_postgres(df_standings, f"{league_name}_standings")
+
     else:
         print("API request failed")
         print(response.status_code)
@@ -39,6 +60,7 @@ def leagues_data_ingestion():
         leagues_standing_ingestion(league_name, HEADERS)
         message = f"✅ Data refreshed :{league_name}"
         print(message)
+        print('test changement')
 
 if __name__ == "__main__":
     leagues_data_ingestion()
