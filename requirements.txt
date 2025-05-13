@@ -6,3 +6,4 @@ pandas
 numpy
 scikit-learn
 SQLAlchemy
+psycopg2-binary
