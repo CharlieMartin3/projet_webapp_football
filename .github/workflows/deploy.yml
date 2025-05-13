@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to AWS
         run: |
           ssh ubuntu@51.20.44.111 << 'EOF'
-            cd ~/projet_webapp
+            cd ~/projet_webapp_football
             git pull origin main
             docker-compose up --build -d
             docker system prune -f
