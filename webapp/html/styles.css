@@ -744,6 +744,65 @@ body:not(#index-page) {
     font-size: 1.2rem;
 }
 
+
+
+.league-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.league-selector label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+.league-selector select {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+    background: rgba(0,128,128,0.08);
+    font-size: 1rem;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.league-selector select:focus {
+    box-shadow: 0 0 0 2px #00808033;
+}
+
+[data-theme="dark"] .league-selector label {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .league-selector select {
+    background: rgba(44, 57, 48, 0.85);
+    color: var(--text-color);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+[data-theme="dark"] .league-selector select:focus {
+    box-shadow: 0 0 0 2px #97BC62;
+}
+
+.center-text {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
 /* Form styling for model pages */
 .model-form {
     background: var(--card-bg-color);
@@ -964,55 +1023,4 @@ body:not(#index-page) {
 
 [data-theme="dark"] .close-modal {
     color: #fff;
-}
-
-
-.league-selector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0 1rem 0;
-}
-
-.league-selector label {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-color);
-    margin-bottom: 0;
-}
-
-.league-selector select {
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 20px;
-    background: rgba(0,128,128,0.08);
-    font-size: 1rem;
-    color: var(--text-color);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    outline: none;
-    transition: box-shadow 0.2s;
-}
-
-.league-selector select:focus {
-    box-shadow: 0 0 0 2px #00808033;
-}
-
-[data-theme="dark"] .league-selector label {
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .league-selector select {
-    background: rgba(44, 57, 48, 0.85);
-    color: var(--text-color);
-    border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-
-[data-theme="dark"] .league-selector select:focus {
-    box-shadow: 0 0 0 2px #97BC62;
-}
-
-.center-text {
-    text-align: center;
 }
