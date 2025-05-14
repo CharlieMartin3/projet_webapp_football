@@ -200,16 +200,15 @@ async def standings_page(request: Request):
 @app.get("/api/standings")
 async def get_standings(league: str):
     if league == "premier-league":
-        standings = standing_PL
-        print(standings)
+        standings = pd.read_sql('SELECT * FROM "PL_standings"', engine)        
     elif league == "laliga":
-        standings = standing_LALIGA
+        standings = pd.read_sql('SELECT * FROM "PD_standings"', engine)
     elif league == "bundesliga":
-        standings = standing_BL1
+        standings = pd.read_sql('SELECT * FROM "BL1_standings"', engine)
     elif league == "serie-a":
-        standings = standing_SERIEA
+        standings = pd.read_sql('SELECT * FROM "SA_standings"', engine)
     elif league == "ligue-1":
-        standings = standing_LIGUE1
+        standings = pd.read_sql('SELECT * FROM "FL1_standings"', engine)
     else:
         return {"error": "Invalid league specified"}
 
