@@ -1024,3 +1024,110 @@ body:not(#index-page) {
 [data-theme="dark"] .close-modal {
     color: #fff;
 }
+
+
+
+.champion {
+    background-color: #FFD700;
+    font-weight: bold;
+}
+
+.ucl {
+    background-color: #ADD8E6;
+}
+
+.europa {
+    background-color: #90EE90;
+}
+
+.conference {
+    background-color: #FFA07A;
+}
+
+.relegated {
+    background-color: #FFB6C1;
+}
+
+.legend {
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Hide by default */
+}
+
+.legend h3 {
+    margin-bottom: 10px;
+}
+
+.legend ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.legend .champion {
+    background-color: #FFD700;
+}
+
+.legend .ucl {
+    background-color: #ADD8E6;
+}
+
+.legend .europa {
+    background-color: #90EE90;
+}
+
+.legend .conference {
+    background-color: #FFA07A;
+}
+
+.legend .relegated {
+    background-color: #FFB6C1;
+}
+
+[data-theme="dark"] .champion {
+    background-color: #B8860B !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+[data-theme="dark"] .ucl {
+    background-color: #4682B4 !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .europa {
+    background-color: #556B2F !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .conference {
+    background-color: #CD853F !important;
+    color: #fff !important;
+}
+[data-theme="dark"] .relegated {
+    background-color: #8B4513 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .legend,
+[data-theme="dark"] .legend h3,
+[data-theme="dark"] .legend li {
+    color: #fff;
+}
+
+[data-theme="dark"] #standings-table td,
+[data-theme="dark"] #standings-table th {
+    color: #fff;
+}

@@ -1,0 +1,31 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 172-31-11-136 >> ~/.ssh/known_hosts
+
+      - name: Deploy to AWS
+        run: |
+          ssh ubuntu@16.171.172.140 << 'EOF'
+            cd ~/projet_webapp
+            git pull origin main
+            docker-compose up --build -d
+            docker system prune -f
+          EOF
+

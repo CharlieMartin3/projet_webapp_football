@@ -49,9 +49,24 @@
                 headers += '</tr>';
                 standingsTable.innerHTML += headers;
 
-                // Populate table with dynamic data rows
+
+
                 data.data.forEach(row => {
-                    let htmlRow = '<tr>';
+                    //let htmlRow = '<tr>';
+                    let position = row[0];
+                    let className = '';
+                    if (position === 1) {
+                        className = 'champion';
+                    } else if (position <= 5) {
+                        className = 'ucl';
+                    } else if (position === 6) {
+                        className = 'europa';
+                    } else if (position === 7) {
+                        className = 'conference';
+                    } else if (position >= 18) {
+                        className = 'relegated';
+                    }
+                    let htmlRow = '<tr class="' + className + '">'                        
 
                     row.forEach((cell, i) => {
                         if (i === pointsIndex) {
